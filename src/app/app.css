@@ -15,3 +15,14 @@
   gap: 0.5rem;
   overflow: auto;
 }
+
+@media (min-width: 768px) {
+  .app-component__main {
+    margin: 4rem auto;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .app-component__users {
+    flex-direction: column;
+  }
+}
