@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, input, Input, InputSignal } from '@angular/core';
 import { USER_IMAGE_PATH } from '../../app.const';
 import { UserInterface } from '../../app.interface';
 
@@ -11,6 +11,9 @@ import { UserInterface } from '../../app.interface';
 })
 export class UserComponent {
   @Input({ required: true }) user!: UserInterface;
+  userSignal: InputSignal<UserInterface> = input.required<UserInterface>();
+
+  imagePathSignal = computed(() => USER_IMAGE_PATH + this.userSignal().avatar);
 
   get imagePath() {
     return USER_IMAGE_PATH + this.user.avatar;
