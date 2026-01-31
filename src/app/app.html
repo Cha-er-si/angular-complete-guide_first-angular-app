@@ -2,10 +2,10 @@
 <main class="app-component__main">
   <ul id="users" class="app-component__users">
     <li>
-      <app-user [user]="users[0]" [userSignal]="users[0]" />
+      <app-user [user]="users[0]" (selectUser)="onSelectUser($event)" />
     </li>
     <li>
-      <app-user [user]="users[1]" [userSignal]="users[1]" />
+      <app-user [user]="users[1]" (selectUser)="onSelectUser($event)" />
     </li>
   </ul>
 </main>

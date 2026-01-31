@@ -13,4 +13,8 @@ import { DUMMY_USERS } from './app.const';
 })
 export class App {
   users: UserInterface[] = DUMMY_USERS;
+
+  onSelectUser(id: string) {
+    console.log('User Selected: ' + id);
+  }
 }
