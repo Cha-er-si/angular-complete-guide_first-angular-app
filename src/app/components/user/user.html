@@ -1,10 +1,6 @@
 <div class="user-component__container">
-  <button class="user-component__button">
-    <img
-      class="user-component__avatar"
-      [src]="'assets/users/' + selectedUser.avatar"
-      [alt]="selectedUser.name"
-    />
+  <button class="user-component__button" (click)="onSelectUser()">
+    <img class="user-component__avatar" [src]="imagePath" [alt]="selectedUser.name" />
     <span class="user-component__name">{{ selectedUser.name }}</span>
   </button>
 </div>

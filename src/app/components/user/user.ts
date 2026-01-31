@@ -11,4 +11,12 @@ import { DUMMY_USERS } from '../../app.const';
 })
 export class UserComponent {
   selectedUser: UserInterface = DUMMY_USERS[0];
+
+  get imagePath() {
+    return 'assets/users/' + this.selectedUser.avatar;
+  }
+
+  onSelectUser() {
+    console.log('Clicked');
+  }
 }
