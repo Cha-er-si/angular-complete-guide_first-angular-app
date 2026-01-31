@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { USER_IMAGE_PATH } from '../../app.const';
+import { UserInterface } from '../../app.interface';
 
 @Component({
   selector: 'app-user',
@@ -8,11 +10,10 @@ import { Component, Input } from '@angular/core';
   standalone: true,
 })
 export class UserComponent {
-  @Input() avatar!: string;
-  @Input() name!: string;
+  @Input({ required: true }) user!: UserInterface;
 
   get imagePath() {
-    return 'assets/users/' + this.avatar;
+    return USER_IMAGE_PATH + this.user.avatar;
   }
 
   onSelectUser() {}

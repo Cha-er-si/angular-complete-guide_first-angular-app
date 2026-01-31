@@ -30,3 +30,5 @@ export const DUMMY_USERS = [
     avatar: 'user-6.jpg',
   },
 ];
+
+export const USER_IMAGE_PATH = 'assets/users/';
