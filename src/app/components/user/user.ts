@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal, WritableSignal } from '@angular/core';
 import { UserInterface } from '../../app.interface';
 import { DUMMY_USERS } from '../../app.const';
 
@@ -10,13 +10,11 @@ import { DUMMY_USERS } from '../../app.const';
   standalone: true,
 })
 export class UserComponent {
-  selectedUser: UserInterface = DUMMY_USERS[0];
-
-  get imagePath() {
-    return 'assets/users/' + this.selectedUser.avatar;
-  }
+  selectedUser: WritableSignal<UserInterface> = signal(DUMMY_USERS[0]);
+  imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar);
 
   onSelectUser() {
-    console.log('Clicked');
+    const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+    this.selectedUser.set(DUMMY_USERS[randomIndex]);
   }
 }
