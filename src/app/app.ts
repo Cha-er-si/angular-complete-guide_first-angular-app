@@ -17,8 +17,8 @@ export class App {
   selectedUserId: string = DUMMY_USERS[0].id;
   // selectedTask: string = '...';
 
-  get selectedUser(): UserInterface {
-    return this.users.find((user) => user.id === this.selectedUserId)!;
+  get selectedUser(): UserInterface | undefined {
+    return this.users.find((user) => user.id === this.selectedUserId);
   }
 
   onSelectUser(id: string) {

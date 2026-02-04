@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   standalone: true,
 })
 export class TasksComponent {
-  @Input({ required: true }) employeeName!: string;
+  @Input() employeeName?: string;
 }
