@@ -16,6 +16,14 @@
   overflow: auto;
 }
 
+.app-component__fallback {
+  font-weight: bold;
+  font-size: 1.15rem;
+  margin: 0;
+  text-align: center;
+}
+
+
 @media (min-width: 768px) {
   .app-component__main {
     margin: 4rem auto;
@@ -24,5 +32,10 @@
 
   .app-component__users {
     flex-direction: column;
+  }
+
+  .app-component__fallback {
+    font-size: 1.5rem;
+    text-align: left;
   }
 }

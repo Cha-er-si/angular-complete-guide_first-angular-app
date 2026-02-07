@@ -14,8 +14,7 @@ import { TasksComponent } from './components/tasks/tasks';
 })
 export class App {
   users: UserInterface[] = DUMMY_USERS;
-  selectedUserId: string = DUMMY_USERS[0].id;
-  // selectedTask: string = '...';
+  selectedUserId?: string;
 
   get selectedUser(): UserInterface | undefined {
     return this.users.find((user) => user.id === this.selectedUserId);

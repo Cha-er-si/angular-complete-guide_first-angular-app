@@ -8,5 +8,9 @@
     }
   </ul>
 
-  <app-tasks [employeeName]="selectedUser?.name" />
+  @if(selectedUser) {
+    <app-tasks [employeeName]="selectedUser.name" />
+  } @else {
+    <p id="fallback" class="app-component__fallback">Select a user to see their tasks!</p>
+  }
 </main>
