@@ -1,12 +1,11 @@
 <app-header />
 <main class="app-component__main">
   <ul id="users" class="app-component__users">
-    <li>
-      <app-user [user]="users[0]" (selectUser)="onSelectUser($event)" />
-    </li>
-    <li>
-      <app-user [user]="users[1]" (selectUser)="onSelectUser($event)" />
-    </li>
+    @for(user of users; track user.id) {
+      <li>
+        <app-user [user]="user" (selectUser)="onSelectUser($event)" />
+      </li>
+    }
   </ul>
 
   <app-tasks [employeeName]="selectedUser?.name" />
