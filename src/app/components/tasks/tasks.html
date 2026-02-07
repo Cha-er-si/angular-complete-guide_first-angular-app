@@ -1,14 +1,16 @@
 <section id="tasks" class="tasks-component__section">
     <header class="tasks-component__header">
-        <h1 class="tasks-component__title">{{ employeeName }}'s Tasks</h1>
+        <h1 class="tasks-component__title">{{ user?.name }}'s Tasks</h1>
         <menu class="tasks-component__menu">
             <button class="tasks-component__add-task-button">Add Task</button>
         </menu>
     </header>
 
     <ul class="tasks-component__task-list">
-        <li><app-task/></li>
-        <li><app-task/></li>
-        <li><app-task/></li>
+        @for (selectedTask of selectedUserTasks; track selectedTask.id) {
+            <li>
+                <app-task [task]="selectedTask"/>
+            </li>
+        }
     </ul>
 </section>
