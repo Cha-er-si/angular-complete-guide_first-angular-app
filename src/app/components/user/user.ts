@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 import { USER_IMAGE_PATH } from '../../app.const';
-import { UserInterface } from '../../app.interface';
+import { type UserInterface } from '../../app.model';
 
 @Component({
   selector: 'app-user',

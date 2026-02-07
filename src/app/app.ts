@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { HeaderComponent } from './components/header/header';
 import { UserComponent } from './components/user/user';
-import { UserInterface } from './app.interface';
+import { type UserInterface } from './app.model';
 import { DUMMY_USERS } from './app.const';
 import { TasksComponent } from './components/tasks/tasks';
 import { CommonModule } from '@angular/common';
