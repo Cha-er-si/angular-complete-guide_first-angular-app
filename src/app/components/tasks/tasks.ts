@@ -3,6 +3,7 @@ import { TaskComponent } from './task/task';
 import { DUMMY_TASKS } from '../../app.const';
 import { type NewTaskInterface, type TaskInterface, type UserInterface } from '../../app.model';
 import { NewTaskComponent } from './new-task/new-task';
+import { TaskService } from './task-service';
 
 @Component({
   selector: 'app-tasks',
@@ -16,8 +17,10 @@ export class TasksComponent {
   tasks: TaskInterface[] = DUMMY_TASKS;
   isAddTask: boolean = false;
 
+  constructor(private taskService: TaskService) {}
+
   get selectedUserTasks() {
-    return this.tasks.filter((task) => task.userId === this.user?.id);
+    return this.taskService.getUserTasks(this.user.id);
   }
 
   onCompleteTask(id: string) {
