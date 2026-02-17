@@ -1,0 +1,39 @@
+<div class="new-task__backdrop" (click)="onCancelTask()"></div>
+<dialog open class="new-task__dialog">
+  <h2 class="new-task__add-task">Add Task</h2>
+  <form class="new-task__form">
+    <p class="new-task__input-container">
+      <label for="title" class="new-task__input-container__label">Task Title</label>
+      <input
+        id="title"
+        class="new-task__input-container__input"
+        placeholder="Please add the task title"
+        type="text"
+      />
+    </p>
+    <p class="new-task__input-container">
+      <label for="summary" class="new-task__input-container__label">Task Summary</label>
+      <textarea
+        id="summary"
+        class="new-task__input-container__input"
+        placeholder="Please add the task summary"
+        type="text"
+      ></textarea>
+    </p>
+    <p class="new-task__input-container">
+      <label for="dueDate" class="new-task__input-container__label">Task Due</label>
+      <input
+        id="summary"
+        class="new-task__input-container__input"
+        placeholder="Please add the task summary"
+        type="date"
+      />
+    </p>
+    <p class="new-task__actions">
+      <button class="new-task__actions__cancel" type="button" (click)="onCancelTask()">
+        Cancel
+      </button>
+      <button class="new-task__actions__create" type="submit">Create</button>
+    </p>
+  </form>
+</dialog>

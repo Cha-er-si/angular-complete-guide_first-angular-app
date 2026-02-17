@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TaskInterface } from '../../app.model';
+import { TaskInterface } from '../../../app.model';
 
 @Component({
   selector: 'app-task',
@@ -11,7 +11,7 @@ export class TaskComponent {
   @Input({ required: true }) task?: TaskInterface;
   @Output() complete: EventEmitter<string> = new EventEmitter<string>();
 
-  onCompleteButton() {
+  onComplete() {
     this.complete.emit(this.task?.id);
   }
 }
