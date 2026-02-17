@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 import { USER_IMAGE_PATH } from '../../app.const';
 import { type UserInterface } from '../../app.model';
+import { CardComponent } from '../../common/card/card';
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './user.html',
   styleUrl: './user.css',
   standalone: true,

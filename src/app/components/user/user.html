@@ -1,6 +1,6 @@
-<div class="user-component__container">
+<app-card>
   <button class="user-component__button" [class.active]="selected" (click)="onSelectUser()">
     <img class="user-component__avatar" [src]="imagePath" [alt]="user.name" />
     <span class="user-component__name">{{ user.name }}</span>
   </button>
-</div>
+</app-card>
