@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task';
 import { DUMMY_TASKS } from '../../app.const';
-import { type TaskInterface, type UserInterface } from '../../app.model';
+import { type NewTaskInterface, type TaskInterface, type UserInterface } from '../../app.model';
 import { NewTaskComponent } from './new-task/new-task';
 
 @Component({
@@ -12,7 +12,7 @@ import { NewTaskComponent } from './new-task/new-task';
   standalone: true,
 })
 export class TasksComponent {
-  @Input() user?: UserInterface;
+  @Input({ required: true }) user!: UserInterface;
   tasks: TaskInterface[] = DUMMY_TASKS;
   isAddTask: boolean = false;
 
@@ -30,6 +30,17 @@ export class TasksComponent {
   }
 
   onCancelAddTask() {
+    this.isAddTask = false;
+  }
+
+  onSubmitTask(newTaskData: NewTaskInterface) {
+    const task: TaskInterface = {
+      ...newTaskData,
+      id: `task_${this.tasks.length + 1}`,
+      userId: this.user.id,
+    };
+
+    this.tasks.push(task);
     this.isAddTask = false;
   }
 }

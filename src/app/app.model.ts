@@ -11,3 +11,9 @@ export interface TaskInterface {
   summary: string;
   dueDate: string;
 }
+
+export interface NewTaskInterface {
+  title: string;
+  summary: string;
+  dueDate: string;
+}

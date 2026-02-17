@@ -1,32 +1,36 @@
 <div class="new-task__backdrop" (click)="onCancelTask()"></div>
 <dialog open class="new-task__dialog">
   <h2 class="new-task__add-task">Add Task</h2>
-  <form class="new-task__form">
+  <form class="new-task__form" (ngSubmit)="onSubmitTask()">
     <p class="new-task__input-container">
       <label for="title" class="new-task__input-container__label">Task Title</label>
       <input
-        id="title"
+        name="title"
         class="new-task__input-container__input"
         placeholder="Please add the task title"
         type="text"
+        [(ngModel)]="taskTitle"
       />
     </p>
     <p class="new-task__input-container">
       <label for="summary" class="new-task__input-container__label">Task Summary</label>
       <textarea
-        id="summary"
+        name="summary"
         class="new-task__input-container__input"
         placeholder="Please add the task summary"
         type="text"
+        rows="5"
+        [(ngModel)]="taskSummary"
       ></textarea>
     </p>
     <p class="new-task__input-container">
       <label for="dueDate" class="new-task__input-container__label">Task Due</label>
       <input
-        id="summary"
+        name="dueDate"
         class="new-task__input-container__input"
         placeholder="Please add the task summary"
         type="date"
+        [(ngModel)]="taskDueDate"
       />
     </p>
     <p class="new-task__actions">

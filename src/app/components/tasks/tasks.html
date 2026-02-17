@@ -1,13 +1,13 @@
 <section id="tasks" class="tasks-component__section">
     <header class="tasks-component__header">
-        <h1 class="tasks-component__title">{{ user?.name }}'s Tasks</h1>
+        <h1 class="tasks-component__title">{{ user.name }}'s Tasks</h1>
         <menu class="tasks-component__menu">
             <button class="tasks-component__add-task-button" (click)="onAddTask()">Add Task</button>
         </menu>
     </header>
 
     @if(isAddTask) {
-        <app-new-task (cancel)="onCancelAddTask()" />
+        <app-new-task (cancel)="onCancelAddTask()" (submitTask)="onSubmitTask($event)" />
     }
 
     <ul class="tasks-component__task-list">
