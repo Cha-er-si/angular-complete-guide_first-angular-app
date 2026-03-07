@@ -14,10 +14,11 @@ import { TaskService } from './task-service';
 })
 export class TasksComponent {
   @Input({ required: true }) user!: UserInterface;
-  tasks: TaskInterface[] = DUMMY_TASKS;
   isAddTask: boolean = false;
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService) {
+    console.log;
+  }
 
   get selectedUserTasks() {
     return this.taskService.getUserTasks(this.user.id);

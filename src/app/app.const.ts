@@ -105,3 +105,4 @@ export const DUMMY_TASKS = [
 ];
 
 export const USER_IMAGE_PATH = 'assets/users/';
+export const TASK_KEY = 'tasks';
