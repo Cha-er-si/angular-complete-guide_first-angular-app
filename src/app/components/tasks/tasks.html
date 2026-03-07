@@ -1,20 +1,24 @@
 <section id="tasks" class="tasks-component__section">
-    <header class="tasks-component__header">
-        <h1 class="tasks-component__title">{{ user.name }}'s Tasks</h1>
-        <menu class="tasks-component__menu">
-            <button class="tasks-component__add-task-button" (click)="onAddTask()">Add Task</button>
-        </menu>
-    </header>
+  <header class="tasks-component__header">
+    <h1 class="tasks-component__title">{{ user.name }}'s Tasks</h1>
+    <menu class="tasks-component__menu">
+      <button class="tasks-component__add-task-button" (click)="onAddTask()">Add Task</button>
+    </menu>
+  </header>
 
-    @if(isAddTask) {
-        <app-new-task (cancel)="onCancelAddTask()" (submitTask)="onSubmitTask($event)" />
+  @if (isAddTask) {
+    <app-new-task (close)="onCloseAddTask()" [userId]="user.id" />
+  }
+
+  <ul class="tasks-component__task-list">
+    @if (selectedUserTasks.length !== 0) {
+      @for (selectedTask of selectedUserTasks; track selectedTask.id) {
+        <li>
+          <app-task [task]="selectedTask" />
+        </li>
+      }
+    } @else {
+        <h1>No Tasks Available...</h1>
     }
-
-    <ul class="tasks-component__task-list">
-        @for (selectedTask of selectedUserTasks; track selectedTask.id) {
-            <li>
-                <app-task [task]="selectedTask" (complete)="onCompleteTask($event)" />
-            </li>
-        }
-    </ul>
+  </ul>
 </section>

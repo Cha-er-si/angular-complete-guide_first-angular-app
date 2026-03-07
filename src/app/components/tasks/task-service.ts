@@ -22,7 +22,10 @@ export class TaskService {
     this.tasks.push(task);
   }
 
-  removeTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+  removeTask(id: string | undefined) {
+    if (id) {
+      const tasks = this.tasks.filter((task) => task.id !== id);
+      this.tasks = tasks.length === 0 ? [] : tasks;
+    }
   }
 }

@@ -23,27 +23,11 @@ export class TasksComponent {
     return this.taskService.getUserTasks(this.user.id);
   }
 
-  onCompleteTask(id: string) {
-    console.log('onCompleteTask() was called');
-    this.tasks = this.tasks.filter((task) => task.id !== id);
-  }
-
   onAddTask() {
     this.isAddTask = !this.isAddTask;
   }
 
-  onCancelAddTask() {
-    this.isAddTask = false;
-  }
-
-  onSubmitTask(newTaskData: NewTaskInterface) {
-    const task: TaskInterface = {
-      ...newTaskData,
-      id: `task_${this.tasks.length + 1}`,
-      userId: this.user.id,
-    };
-
-    this.tasks.push(task);
+  onCloseAddTask() {
     this.isAddTask = false;
   }
 }

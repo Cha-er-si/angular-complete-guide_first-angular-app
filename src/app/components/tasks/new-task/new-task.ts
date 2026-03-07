@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NewTaskInterface } from '../../../app.model';
+import { type NewTaskInterface } from '../../../app.model';
+import { TaskService } from '../task-service';
 
 @Component({
   selector: 'app-new-task',
@@ -9,21 +10,26 @@ import { NewTaskInterface } from '../../../app.model';
   styleUrl: './new-task.css',
 })
 export class NewTaskComponent {
-  @Output() cancel: EventEmitter<void> = new EventEmitter<void>();
-  @Output() submitTask: EventEmitter<NewTaskInterface> = new EventEmitter<NewTaskInterface>();
+  @Input({ required: true }) userId!: string;
+  @Output() close: EventEmitter<void> = new EventEmitter<void>();
+
   taskTitle: string = '';
   taskSummary: string = '';
   taskDueDate: string = '';
 
-  onCancelTask() {
-    this.cancel.emit();
+  constructor(private taskService: TaskService) {}
+
+  onCloseTask() {
+    this.close.emit();
   }
 
   onSubmitTask() {
-    this.submitTask.emit({
+    const taskData: NewTaskInterface = {
       title: this.taskTitle,
       summary: this.taskSummary,
       dueDate: this.taskDueDate,
-    });
+    };
+    this.taskService.addTask(taskData, this.userId);
+    this.close.emit();
   }
 }
