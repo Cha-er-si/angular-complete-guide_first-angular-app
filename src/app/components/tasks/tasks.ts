@@ -16,9 +16,7 @@ export class TasksComponent {
   @Input({ required: true }) user!: UserInterface;
   isAddTask: boolean = false;
 
-  constructor(private taskService: TaskService) {
-    console.log;
-  }
+  constructor(private taskService: TaskService) {}
 
   get selectedUserTasks() {
     return this.taskService.getUserTasks(this.user.id);
